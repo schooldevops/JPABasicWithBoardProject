@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: boarduser
+    password: boarduser123
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/simpleboard?serverTimeZone=Asia/Seoul&autoReconnect=true
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: board-pool
+      maximum-pool-size: 20
+      max-lifetime: 1800000
+      idle-timeout: 30000
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comment: true
+        format_sql: true
+    hibernate:
+      ddl-auto: validate
+
+logging:
+  level:
+    org.hibernate.type: trace

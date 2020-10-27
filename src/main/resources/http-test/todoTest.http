@@ -1,0 +1,23 @@
+###
+POST localhost:8080/todos
+Content-Type: application/json
+
+{
+  "todo": "Get Up Early",
+  "done": false
+}
+
+###
+PUT localhost:8080/todos/1
+Content-Type: application/json
+
+{
+  "todo": "Go to bed",
+  "done": true
+}
+
+###
+GET localhost:8080/todos
+
+###
+DELETE localhost:8080/todos/2
