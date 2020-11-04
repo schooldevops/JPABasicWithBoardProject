@@ -18,7 +18,7 @@ spring:
         use_sql_comment: true
         format_sql: true
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
 
 logging:
   level:

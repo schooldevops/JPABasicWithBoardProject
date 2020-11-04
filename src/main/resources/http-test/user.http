@@ -1,0 +1,69 @@
+###
+POST localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "id": "kido",
+  "name": "kido",
+  "birth": "770605",
+  "userDetail": {
+    "id": "kido",
+    "nick": "kaido",
+    "avatarImg": "http://kido.com/img.png",
+    "category": "economic",
+    "role": "GROUP_ADMIN"
+  }
+}
+
+### GET User by Id
+GET localhost:8080/api/users/kido
+
+### GET UserDetail by userId
+GET localhost:8080/api/users/kido/detail
+
+
+###
+PUT localhost:8080/api/users/kido
+Content-Type: application/json
+
+{
+  "name": "kido2",
+  "birth": "770707"
+}
+
+
+###
+PUT localhost:8080/api/users/kido/detail
+Content-Type: application/json
+
+{
+  "nick": "ddo",
+  "category": "Computer Science"
+}
+
+###
+DELETE localhost:8080/api/users/kido/detail
+
+###
+DELETE localhost:8080/api/users/kido
+
+### new user for cascade delete
+POST localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "id": "mario",
+  "name": "mario",
+  "birth": "900909",
+  "userDetail": {
+    "id": "mario",
+    "nick": "cart mario",
+    "avatarImg": "http://mario.com/marioimg.png",
+    "category": "economic",
+    "role": "USER"
+  }
+}
+
+
+###
+DELETE localhost:8080/api/users/mario
