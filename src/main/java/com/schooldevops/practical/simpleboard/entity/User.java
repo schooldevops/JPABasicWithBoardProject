@@ -30,14 +30,14 @@ public class User {
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime createdAt;
 
-    @JoinColumn(name = "user_id", unique = false, foreignKey = @ForeignKey(name = "fk_user_detail"))
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "id")
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private UserDetail userDetail;
 
-//    public void setUserDetail(UserDetail userDetail) {
-//        this.userDetail = userDetail;
-//        userDetail.setUser(this);
-//    }
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
+        userDetail.setUser(this);
+    }
 
     @Transient
     public UserDto getDTO() {

@@ -42,9 +42,10 @@ public class UserDetail {
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime modifiedAt;
 
-//    @OneToOne
-//    @MapsId
-//    private User user;
+    @JoinColumn(name = "id", foreignKey = @ForeignKey(name = "FK_UserDetail_to_user"))
+    @OneToOne
+    @MapsId
+    private User user;
 
     @Transient
     public UserDetailDto getDTO() {
