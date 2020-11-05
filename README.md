@@ -9,5 +9,8 @@
 [3. DBSetting](./documents/03.JPABasic.md)
 - JPA 기본을 이해하고, 엔터티, Query로그를 살펴볼 수 있다. 
 
-[4. JPA OneToOne](./documents/04.OneToOneUni.md)
-- JPA OneToOne 단방향매 핑
+[4. JPA OneToOne Unidirection](./documents/04.OneToOneUni.md)
+- JPA OneToOne 단방향 매핑
+
+[4. JPA OneToOne Bidirection](./documents/05.OneToOneBi.md)
+- JPA OneToOne 양방향 매핑
