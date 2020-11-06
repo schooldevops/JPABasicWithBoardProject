@@ -14,3 +14,6 @@
 
 [5. JPA OneToOne Bidirection](./documents/05.OneToOneBi.md)
 - JPA OneToOne 양방향 매핑
+
+[6. JPA OneToMany](./documents/06.OneToMany.md)
+- JPA OneToMany 매핑 

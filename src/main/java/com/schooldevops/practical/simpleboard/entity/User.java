@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -30,7 +31,6 @@ public class User {
     @Convert(converter = LocalDateTimeConverter.class)
     private LocalDateTime createdAt;
 
-//    @JoinColumn(name = "id")
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private UserDetail userDetail;
 
@@ -38,6 +38,9 @@ public class User {
         this.userDetail = userDetail;
         userDetail.setUser(this);
     }
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Board> boards;
 
     @Transient
     public UserDto getDTO() {

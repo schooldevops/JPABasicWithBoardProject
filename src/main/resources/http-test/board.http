@@ -1,0 +1,29 @@
+###
+POST localhost:8080/api/boards
+Content-Type: application/json
+
+{
+  "category": "NOTICE",
+  "title": "새로운 런칭 기념...",
+  "contents": "새로운 런칭기념 행사를 합니다. 참여하세요....",
+  "user": {
+    "id": "kido"
+  },
+  "status": "DRAFT"
+}
+
+### GET Board by id
+GET localhost:8080/api/boards/1
+
+###
+PUT localhost:8080/api/boards/1
+Content-Type: application/json
+
+{
+  "category": "BLOG",
+  "status": "ISSUED"
+}
+
+###
+DELETE localhost:8080/api/boards/1
+
