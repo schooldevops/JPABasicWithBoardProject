@@ -30,9 +30,9 @@ public class UserDetail {
     @Column
     private String category;
 
-    @Enumerated(EnumType.STRING)
-    @Column
-    private Role role;
+//    @Enumerated(EnumType.STRING)
+//    @Column
+//    private Role role;
 
     @Column
     @Convert(converter = LocalDateTimeConverter.class)
@@ -54,7 +54,7 @@ public class UserDetail {
                 .nick(this.nick)
                 .avatarImg(this.avatarImg)
                 .category(this.category)
-                .role(this.role)
+//                .role(this.role)
                 .joinedAt(this.joinedAt)
                 .modifiedAt(this.modifiedAt)
                 .build();

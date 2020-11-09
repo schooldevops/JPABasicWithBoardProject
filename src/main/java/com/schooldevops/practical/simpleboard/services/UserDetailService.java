@@ -43,9 +43,9 @@ public class UserDetailService {
             findUserDetail.setNick(userDetail.getNick());
         }
 
-        if (userDetail.getRole() != null) {
-            findUserDetail.setRole(userDetail.getRole());
-        }
+//        if (userDetail.getRole() != null) {
+//            findUserDetail.setRole(userDetail.getRole());
+//        }
 
         UserDetail savedUserDetail = userDetailRepository.save(findUserDetail);
 

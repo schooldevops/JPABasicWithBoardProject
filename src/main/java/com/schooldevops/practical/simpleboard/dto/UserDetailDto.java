@@ -23,7 +23,7 @@ public class UserDetailDto {
 
     private String category;
 
-    private Role role;
+//    private Role role;
 
     private LocalDateTime joinedAt;
 
@@ -37,7 +37,7 @@ public class UserDetailDto {
                 .nick(this.nick)
                 .avatarImg(this.avatarImg)
                 .category(this.category)
-                .role(this.role)
+//                .role(this.role)
                 .joinedAt(now)
                 .modifiedAt(now)
                 .build();

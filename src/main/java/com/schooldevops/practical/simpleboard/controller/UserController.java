@@ -8,6 +8,8 @@ import com.schooldevops.practical.simpleboard.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequestMapping("/api/users")
 @RestController
 public class UserController {
@@ -62,5 +64,10 @@ public class UserController {
     @DeleteMapping("/{userId}")
     public UserDto deleteByUserId(@PathVariable("userId") String userId) {
         return userService.deleteByUserId(userId);
+    }
+
+    @PutMapping("/{userId}/roles")
+    public UserDto bindRolesToUser(@PathVariable("userId") String userId, @RequestBody List<Long> roleIds) {
+        return userService.bindRolesToUser(userId, roleIds);
     }
 }

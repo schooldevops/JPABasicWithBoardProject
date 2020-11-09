@@ -1,24 +1,27 @@
 package com.schooldevops.practical.simpleboard.services;
 
-import com.schooldevops.practical.simpleboard.dto.UserDetailDto;
+import com.schooldevops.practical.simpleboard.constants.Role;
 import com.schooldevops.practical.simpleboard.dto.UserDto;
+import com.schooldevops.practical.simpleboard.entity.RoleEntity;
 import com.schooldevops.practical.simpleboard.entity.User;
-import com.schooldevops.practical.simpleboard.entity.UserDetail;
+import com.schooldevops.practical.simpleboard.repository.RoleRepository;
 import com.schooldevops.practical.simpleboard.repository.UserRepository;
-import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
 
     final UserRepository userRepository;
+    final RoleRepository roleRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     public UserDto saveUser(UserDto user) {
@@ -62,5 +65,23 @@ public class UserService {
         userRepository.delete(findUser);
 
         return findUser.getDTO();
+    }
+
+    public UserDto bindRolesToUser(String userId, List<Long> roleIds) {
+        Optional<User> userIds = this.userRepository.findById(userId);
+        User findUser = userIds.orElseThrow(() -> new RuntimeException("There are any User by userId for Bind roles."));
+        List<RoleEntity> roles = roleRepository.findAllByIdIn(roleIds);
+
+        if (roles == null || roles.isEmpty()) {
+            throw new RuntimeException("There are any Role by roleId. " + roleIds);
+        }
+
+        roles.forEach(role -> {
+            findUser.addRole(role);
+        });
+
+        User savedUser = userRepository.save(findUser);
+
+        return savedUser.getDTO();
     }
 }

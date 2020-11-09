@@ -6,7 +6,10 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,6 +36,22 @@ public class User {
 
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private UserDetail userDetail;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<RoleEntity> roles;
+
+    public void addRole(RoleEntity role) {
+        if (roles == null) {
+            roles = new HashSet<>();
+        }
+
+        roles.add(role);
+    }
 
     public void setUserDetail(UserDetail userDetail) {
         this.userDetail = userDetail;

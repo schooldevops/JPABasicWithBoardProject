@@ -64,6 +64,11 @@ Content-Type: application/json
   }
 }
 
+### Bind Role
+PUT localhost:8080/api/users/kido/roles
+Content-Type: application/json
+
+[1, 2]
 
 ###
 DELETE localhost:8080/api/users/mario

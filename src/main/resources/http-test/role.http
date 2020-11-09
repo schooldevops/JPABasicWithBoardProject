@@ -1,0 +1,43 @@
+###
+POST localhost:8080/api/roles
+Content-Type: application/json
+
+{
+  "name": "Administrator"
+}
+
+###
+POST localhost:8080/api/roles
+Content-Type: application/json
+
+{
+"name": "User"
+}
+
+###
+POST localhost:8080/api/roles
+Content-Type: application/json
+
+{
+"name": "DevOpsUser"
+}
+
+### GET Role by Id
+GET localhost:8080/api/roles/1
+
+###
+PUT localhost:8080/api/roles/1
+Content-Type: application/json
+
+{
+  "name": "SuperAdmin"
+}
+
+###
+PUT localhost:8080/api/roles/1/users
+Content-Type: application/json
+
+["kido","mario"]
+
+###
+DELETE localhost:8080/api/roles/1
