@@ -16,4 +16,7 @@
 - JPA OneToOne 양방향 매핑
 
 [6. JPA OneToMany](./documents/06.OneToMany.md)
-- JPA OneToMany 매핑 
+- JPA OneToMany 매핑
+
+[7. JPA ManyToMany](./documents/07.ManyToMany.md)
+- JPA ManyToMany 매핑  
