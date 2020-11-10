@@ -1,0 +1,33 @@
+###
+POST localhost:8080/api/clubs
+Content-Type: application/json
+
+{
+  "name": "중고나라",
+  "clubLevel": "FOREST"
+}
+
+###
+POST localhost:8080/api/clubs
+Content-Type: application/json
+
+{
+  "name": "고물나",
+  "clubLevel": "TREE"
+}
+
+### GET User by Id
+GET localhost:8080/api/clubs/1
+
+###
+PUT localhost:8080/api/clubs/1
+Content-Type: application/json
+
+{
+  "name": "번개장투",
+  "clubLevel": "TREE"
+}
+
+###
+DELETE localhost:8080/api/clubs/1
+

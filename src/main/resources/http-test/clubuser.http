@@ -1,0 +1,34 @@
+###
+POST localhost:8080/api/clubusers
+Content-Type: application/json
+
+{
+  "club": {
+    "id": 1
+  },
+  "user": {
+    "id": "kido"
+  },
+  "clubUserLevel": "GARDNER",
+  "score": 100,
+  "clubUserStatus": "OPEN"
+}
+
+### GET User by Id
+GET localhost:8080/api/clubusers/1/kido
+
+###
+PUT localhost:8080/api/clubusers/clubs/1/users
+Content-Type: application/json
+
+["kido", "mario"]
+
+###
+PUT localhost:8080/api/clubusers/users/mario/groups
+Content-Type: application/json
+
+[1, 2]
+
+###
+DELETE localhost:8080/api/clubusers/1/mario
+
