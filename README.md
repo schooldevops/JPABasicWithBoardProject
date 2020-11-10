@@ -22,4 +22,7 @@
 - JPA ManyToMany 매핑  
 
 [8. JPA ManyToMany More](./documents/08.ManyToManyWithEntity.md)
-- JPA ManyToMany 매핑 - Relation Entity for additional Field
+- JPA ManyToMany 매핑 - Relation Entity for additional Field 
+
+[9. JPA Event Hook](./documents/09.EntityEventHooking.md)
+- JPA CRUD Event Hook

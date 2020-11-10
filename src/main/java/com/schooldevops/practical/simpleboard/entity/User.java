@@ -3,6 +3,7 @@ package com.schooldevops.practical.simpleboard.entity;
 import com.schooldevops.practical.simpleboard.dto.UserDto;
 import com.schooldevops.practical.simpleboard.entity.converter.LocalDateTimeConverter;
 import lombok.*;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -10,6 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Slf4j
 @Getter
 @Setter
 @NoArgsConstructor
@@ -76,5 +78,40 @@ public class User {
             userDTO.setUserDetail(userDetail.getDTO());
         }
         return userDTO;
+    }
+
+    @PrePersist
+    public void callBackPrePersist() {
+        log.info("fireEvent PrePersist: ");
+    }
+
+    @PostPersist
+    public void callBackPostPersist() {
+        log.info("fireEvent PostPersist: ");
+    }
+
+    @PreRemove
+    public void callBackPreRemove() {
+        log.info("fireEvent PreRemove");
+    }
+
+    @PostRemove
+    public void callBackPostRemove() {
+        log.info("fireEvent PostRemove");
+    }
+
+    @PreUpdate
+    public void callBackPreUpdate() {
+        log.info("fireEvent PreUpdate");
+    }
+
+    @PostUpdate
+    public void callBackPostUpdate() {
+        log.info("fireEvent PostUpdate");
+    }
+
+    @PostLoad
+    public void callBackPostLoad() {
+        log.info("fireEvent PostLoad");
     }
 }
