@@ -29,6 +29,12 @@ public class UserController {
     }
 
 
+    @PostMapping("/em")
+    public UserDto saveUserEM(@RequestBody UserDto user) {
+
+        return userService.saveUserUsingEM(user);
+    }
+
     @PostMapping("/detail")
     public UserDetailDto saveUser(@RequestBody UserDetailDto userDetail) {
         return userDetailService.saveUserDetail(userDetail);

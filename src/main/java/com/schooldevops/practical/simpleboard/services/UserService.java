@@ -1,6 +1,5 @@
 package com.schooldevops.practical.simpleboard.services;
 
-import com.schooldevops.practical.simpleboard.constants.Role;
 import com.schooldevops.practical.simpleboard.dto.UserDto;
 import com.schooldevops.practical.simpleboard.entity.RoleEntity;
 import com.schooldevops.practical.simpleboard.entity.User;
@@ -9,11 +8,17 @@ import com.schooldevops.practical.simpleboard.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UserService {
+
+    @PersistenceContext
+    EntityManager em;
 
     final UserRepository userRepository;
     final RoleRepository roleRepository;
@@ -22,6 +27,19 @@ public class UserService {
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+    }
+
+    @Transactional
+    public UserDto saveUserUsingEM(UserDto user) {
+        User userEntity = user.getEntity();
+
+        this.em.persist(userEntity);
+        userEntity.setName("Modified Name:");
+
+//        this.em.detach(userEntity);
+//        this.em.flush();
+
+        return userEntity.getDTO();
     }
 
     public UserDto saveUser(UserDto user) {
