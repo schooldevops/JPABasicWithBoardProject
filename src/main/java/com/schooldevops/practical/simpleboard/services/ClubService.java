@@ -2,20 +2,23 @@ package com.schooldevops.practical.simpleboard.services;
 
 import com.schooldevops.practical.simpleboard.dto.ClubDto;
 import com.schooldevops.practical.simpleboard.entity.Club;
-import com.schooldevops.practical.simpleboard.entity.User;
 import com.schooldevops.practical.simpleboard.repository.ClubRepository;
 import com.schooldevops.practical.simpleboard.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-import java.util.List;
 import java.util.Optional;
 
 @Slf4j
 @Service
 public class ClubService {
+
+    @PersistenceContext
+    EntityManager entityManager;
 
     private final ClubRepository clubRepository;
     private final UserRepository userRepository;
@@ -30,7 +33,7 @@ public class ClubService {
     public ClubDto saveClub(ClubDto clubDto) {
         Club entity = clubDto.getEntity();
         Club savedClub = clubRepository.save(entity);
-
+        
         return savedClub.getDTO();
     }
 

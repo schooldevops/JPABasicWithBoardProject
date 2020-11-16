@@ -6,6 +6,7 @@ import com.schooldevops.practical.simpleboard.entity.UserDetail;
 import com.schooldevops.practical.simpleboard.services.UserDetailService;
 import com.schooldevops.practical.simpleboard.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -66,8 +67,34 @@ public class UserController {
         return userService.deleteByUserId(userId);
     }
 
-    @PutMapping("/{userId}/roles")
-    public UserDto bindRolesToUser(@PathVariable("userId") String userId, @RequestBody List<Long> roleIds) {
-        return userService.bindRolesToUser(userId, roleIds);
+    @PutMapping("/name/{userName}/roles")
+    public UserDto bindRolesToUser(@PathVariable("userName") String userName, @RequestBody List<Long> roleIds) {
+        return userService.bindRolesToUser(userName, roleIds);
+    }
+
+    @GetMapping("/name/{userName}/periods/{period}")
+    public List<UserDto> findByUserIdAndJoinedAtPeriod(@PathVariable("userName") String userName, @PathVariable("period") Integer period) {
+        return userService.findNameAndPeriodDate(userName, period);
+    }
+
+    @GetMapping("/name/{userName}/top")
+    public List<UserDto> findByUserIdAndJoinedAtPeriod(@PathVariable("userName") String userName) {
+        return userService.findTop3ByName(userName);
+    }
+
+    @GetMapping("/name/{userName}")
+    public List<UserDto> findByUserName(@PathVariable("userName") String userName, @RequestParam String ascdes) {
+        return userService.findByNameWithSort(userName, ascdes);
+    }
+
+    @GetMapping("/")
+    public Page<UserDto> findAllUserWithPage(@RequestParam Integer page, @RequestParam Integer sizePerPage, @RequestParam String ascdes) {
+
+        if (ascdes == null) {
+            return userService.findAllUserWithPaging(page, sizePerPage);
+        }
+        else {
+            return userService.findAllUserWithPagingAndSort(page, sizePerPage, ascdes);
+        }
     }
 }

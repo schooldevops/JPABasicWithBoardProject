@@ -71,4 +71,21 @@ Content-Type: application/json
 [1, 2]
 
 ###
-DELETE localhost:8080/api/users/mario
+DELETE localhost:8080/api/users/name/mario
+
+
+###
+GET localhost:8080/api/users/name/kido/periods/10
+
+
+###
+GET localhost:8080/api/users/name/kido/top
+
+###
+GET localhost:8080/api/users/name/kido?ascdes=DES
+
+###
+GET localhost:8080/api/users/?page=1&sizePerPage=2
+
+###
+GET localhost:8080/api/users/?page=1&sizePerPage=2&ascdes=DES
