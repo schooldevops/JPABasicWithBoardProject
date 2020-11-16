@@ -29,3 +29,6 @@
 
 [10. JPA Entity lifecycle](./documents/10.EntityLifecycle.md)
 - JPA Entity Lifecycle 
+
+[11. JPA Derived Query](./documents/11.DerivedQuery.md)
+- JPA Derived Query
