@@ -15,6 +15,23 @@ Content-Type: application/json
   }
 }
 
+###
+POST localhost:8080/api/users/em
+Content-Type: application/json
+
+{
+  "id": "kido",
+  "name": "kido",
+  "birth": "770605",
+  "userDetail": {
+    "id": "kido",
+    "nick": "kaido",
+    "avatarImg": "http://kido.com/img.png",
+    "category": "economic",
+    "role": "GROUP_ADMIN"
+  }
+}
+
 ### GET User by Id
 GET localhost:8080/api/users/kido
 

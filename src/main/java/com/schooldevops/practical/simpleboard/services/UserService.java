@@ -12,6 +12,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -20,6 +24,9 @@ import java.util.stream.Collectors;
 @Service
 public class UserService {
 
+    @PersistenceContext
+    EntityManager em;
+
     final UserRepository userRepository;
     final RoleRepository roleRepository;
 
@@ -27,6 +34,19 @@ public class UserService {
     public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+    }
+
+    @Transactional
+    public UserDto saveUserUsingEM(UserDto user) {
+        User userEntity = user.getEntity();
+
+        this.em.persist(userEntity);
+        userEntity.setName("Modified Name:");
+
+//        this.em.detach(userEntity);
+//        this.em.flush();
+
+        return userEntity.getDTO();
     }
 
     public UserDto saveUser(UserDto user) {

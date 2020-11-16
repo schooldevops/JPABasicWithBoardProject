@@ -26,3 +26,6 @@
 
 [9. JPA Event Hook](./documents/09.EntityEventHooking.md)
 - JPA CRUD Event Hook
+
+[10. JPA Entity lifecycle](./documents/10.EntityLifecycle.md)
+- JPA Entity Lifecycle 
