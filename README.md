@@ -32,3 +32,6 @@
 
 [11. JPA Derived Query](./documents/11.DerivedQuery.md)
 - JPA Derived Query
+
+[12. JPA @Query](documents/12.Query.md)
+- JPA @Query
