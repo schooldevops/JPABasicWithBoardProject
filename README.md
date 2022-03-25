@@ -32,3 +32,6 @@
 
 [11. JPA Derived Query](./documents/11.DerivedQuery.md)
 - JPA Derived Query
+
+[12. JPA Propagation and Isolation Level](./documents/12.Propagation.md)
+- JPA Propagation and Isolation Level
